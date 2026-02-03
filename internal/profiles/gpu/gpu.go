@@ -19,6 +19,7 @@ package gpu
 import (
 	"fmt"
 	"math/rand"
+	"strings"
 
 	"github.com/google/uuid"
 	resourceapi "k8s.io/api/resource/v1"
@@ -67,6 +68,9 @@ func (p Profile) EnumerateDevices() (resourceslice.DriverResources, error) {
 				},
 				"driverVersion": {
 					VersionValue: ptr.To("1.0.0"),
+				},
+				"mDevUUID": {
+					StringValue: ptr.To(strings.TrimPrefix(uuid, "gpu-")),
 				},
 			},
 			Capacity: map[resourceapi.QualifiedName]resourceapi.DeviceCapacity{

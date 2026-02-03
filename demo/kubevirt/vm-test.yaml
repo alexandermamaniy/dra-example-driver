@@ -52,7 +52,7 @@ spec:
             - name: cloudinitdisk
               disk:
                 bus: virtio
-          gpus:
+          hostDevices:
           - claimName: gpu-claim
             name: example-gpu
             requestName: gpu

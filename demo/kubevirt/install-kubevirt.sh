@@ -34,4 +34,4 @@ kubectl create -f "https://github.com/kubevirt/kubevirt/releases/download/${VERS
 kubectl -n kubevirt wait kv kubevirt --for condition=Available --timeout=600s
 
 # Enable DRA feature gates
-kubectl patch kubevirt kubevirt -n kubevirt --type=merge -p '{"spec":{"configuration":{"developerConfiguration":{"featureGates":["GPUsWithDRA","HostDevicesWithDRA"]}}}}'
+kubectl patch kubevirt kubevirt -n kubevirt --type=merge -p '{"spec":{"configuration":{"developerConfiguration":{"featureGates":["GPUsWithDRA","HostDevicesWithDRA", "HostDevices"]}}}}'
