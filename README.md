@@ -28,7 +28,8 @@ The procedure below has been tested and verified on both Linux and Mac.
 * [kind v0.17.0+](https://kind.sigs.k8s.io/docs/user/quick-start/)
 * [helm v3.7.0+](https://helm.sh/docs/intro/install/)
 * [kubectl v1.18+](https://kubernetes.io/docs/reference/kubectl/)
-
+* [Minikube v1.38.1+](https://github.com/kubernetes/minikube/releases/tag/v1.38.1)
+* [kubernetes v1.35.1+ embedded in minikube](https://github.com/kubernetes/minikube/pull/22665)
 ### Demo
 We start by first cloning this repository and `cd`ing into it. All of the
 scripts and example Pod specs used in this demo are contained here, so take a
@@ -96,6 +97,7 @@ And then install the example resource driver via `helm`.
 helm upgrade -i \
   --create-namespace \
   --namespace dra-example-driver \
+  --set webhook.enabled=true \
   dra-example-driver \
   deployments/helm/dra-example-driver
 ```
